@@ -1,5 +1,5 @@
-const HEIGHT = 900;
-const WIDTH = 1000;
+const HEIGHT = 700;
+const WIDTH = 2000;
 
 let backgroundImage;
 let runner;
