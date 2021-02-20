@@ -11,4 +11,6 @@ function setup() {
     createCanvas(WIDTH, HEIGHT);
 }
 
-function keyPressed() {}
+function keyPressed() {
+    game.keyPressed();
+}
