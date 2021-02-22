@@ -4,5 +4,6 @@ const GRAVITY = 0.5;
 
 let backgroundImage;
 let danny;
-let bonusImage
+let bonusImage;
+let obstacleImage;
 

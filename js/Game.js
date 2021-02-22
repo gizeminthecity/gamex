@@ -42,7 +42,7 @@ class Game {
         /// BONUS PART
 
         textSize(35);
-        fill(0);
+        fill(124, 88, 124);
         text(`${this.score}`, 1600, 50);
 
         if (frameCount % 60 === 0) {

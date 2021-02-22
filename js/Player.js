@@ -5,8 +5,8 @@ class Player {
         this.velocity = 0;
         this.floor = 359;
         this.lift = -15;
-        this.width = 150;
-        this.height = 150;
+        this.width = 130;
+        this.height = 130;
     }
 
     keyPressed() {

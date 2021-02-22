@@ -1,9 +1,9 @@
 class Bonus {
     constructor() {
         this.x = WIDTH;
-        this.height = 70;
-        this.y = random(100, 430);
-        this.width = 70;
+        this.height = 65;
+        this.y = random(100, 400);
+        this.width = 65;
         this.speed = 4;
     }
 
