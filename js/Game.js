@@ -3,16 +3,22 @@ class Game {
         this.background = new Background();
         this.player = new Player();
         this.obstacles = [];
+        this.bonuses = [];
+        this.score = 0;
+        this.lostGame = new lostGame();
     }
     keyPressed() {
         this.player.keyPressed();
     }
+
+    gameOver() {}
+
     draw() {
         clear();
         this.background.draw();
         this.player.draw();
 
-        if (frameCount % 200 === 0) {
+        if (frameCount % 173 === 0) {
             this.obstacles.push(new Obstacle());
         }
 
@@ -20,12 +26,40 @@ class Game {
             obstacle.draw();
 
             if (this.collisionCheck(this.player, obstacle)) {
-                
                 console.log("WATCH OUT");
+                this.lostGame.draw();
+                this.obstacle.y = -500;
+                this.bonus.y = -500;
+
+                noLoop();
             }
 
             if (obstacle.x <= -obstacle.width) {
                 this.obstacles.splice(index, 1);
+            }
+        });
+
+        /// BONUS PART
+
+        textSize(35);
+        fill(0);
+        text(`${this.score}`, 1600, 50);
+
+        if (frameCount % 60 === 0) {
+            this.bonuses.push(new Bonus());
+        }
+
+        this.bonuses.forEach((bonus, index) => {
+            bonus.draw();
+
+            if (this.collisionCheck(this.player, bonus)) {
+                this.score += 10;
+                bonus.y = -500;
+                console.log("EATEN");
+            }
+
+            if (bonus.x <= -bonus.width) {
+                this.bonuses.splice(index, 1);
             }
         });
     }
@@ -52,4 +86,5 @@ class Game {
             isTouchingOnLeft
         );
     }
+
 }
