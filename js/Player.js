@@ -3,10 +3,10 @@ class Player {
         this.x = 570;
         this.y = 200;
         this.velocity = 0;
-        this.floor = 359;
+        this.floor = 387;
         this.lift = -15;
-        this.width = 130;
-        this.height = 130;
+        this.width = 140;
+        this.height = 110;
     }
 
     keyPressed() {
