@@ -2,7 +2,7 @@ class Obstacle {
     constructor() {
         this.x = WIDTH;
         this.height = 100;
-        this.y = random( 0, 430);
+        this.y = random(0, 390);
         this.width = 100;
         this.speed = 4;
 
