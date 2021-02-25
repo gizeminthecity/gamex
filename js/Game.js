@@ -7,11 +7,25 @@ class Game {
         this.score = 0;
         this.lostGame = new lostGame();
     }
+
     keyPressed() {
         this.player.keyPressed();
+
+        if(this.gameOver && keyCode === 13) {
+            this.init();
+            loop();
+        }
     }
 
-    gameOver() {}
+    init() {
+        this.background = new Background();
+        this.player = new Player();
+        this.obstacles = [];
+        this.bonuses = [];
+        this.score = 0;
+        this.lostGame = new lostGame();
+        this.gameOver = false;
+    }
 
     draw() {
         clear();
@@ -25,17 +39,18 @@ class Game {
         this.obstacles.forEach((obstacle, index) => {
             obstacle.draw();
 
-            if (this.collisionCheck(this.player, obstacle)) {
-                console.log("WATCH OUT");
-                this.lostGame.draw();
-                this.obstacle.y = -500;
-                this.bonus.y = -500;
-
-                noLoop();
-            }
-
             if (obstacle.x <= -obstacle.width) {
                 this.obstacles.splice(index, 1);
+            }
+
+            if (this.collisionCheck(this.player, obstacle)) {
+                console.log("WATCH OUT");
+                noLoop();
+                this.lostGame.draw();
+                this.obstacles.length = 0;
+                this.bonuses.length = 0;
+                this.gameOver = true;
+                this.score = '';
             }
         });
 
@@ -86,5 +101,4 @@ class Game {
             isTouchingOnLeft
         );
     }
-
 }
