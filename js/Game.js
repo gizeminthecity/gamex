@@ -11,7 +11,7 @@ class Game {
     keyPressed() {
         this.player.keyPressed();
 
-        if(this.gameOver && keyCode === 13) {
+        if (this.gameOver && keyCode === 13) {
             this.init();
             loop();
         }
@@ -35,27 +35,6 @@ class Game {
         if (frameCount % 173 === 0) {
             this.obstacles.push(new Obstacle());
         }
-
-        this.obstacles.forEach((obstacle, index) => {
-            obstacle.draw();
-
-            if (obstacle.x <= -obstacle.width) {
-                this.obstacles.splice(index, 1);
-            }
-
-            if (this.collisionCheck(this.player, obstacle)) {
-                console.log("WATCH OUT");
-                noLoop();
-                this.lostGame.draw();
-                this.obstacles.length = 0;
-                this.bonuses.length = 0;
-                this.gameOver = true;
-                this.score = '';
-            }
-        });
-
-        /// BONUS PART
-
         textSize(35);
         fill(124, 88, 124);
         text(`${this.score}`, 1600, 50);
@@ -69,14 +48,35 @@ class Game {
 
             if (this.collisionCheck(this.player, bonus)) {
                 this.score += 10;
-                this.bonuses.splice(index, 1) ;
+                this.bonuses.splice(index, 1);
                 console.log("EATEN");
             }
 
             if (bonus.x <= -bonus.width) {
                 this.bonuses.splice(index, 1);
             }
+
         });
+
+        this.obstacles.forEach((obstacle, index) => {
+            obstacle.draw();
+
+            if (obstacle.x <= -obstacle.width) {
+                this.obstacles.splice(index, 1);
+            }
+
+            if (this.collisionCheck(this.player, obstacle)) {
+                console.log("WATCH OUT");
+                noLoop();
+                this.lostGame.draw();
+                this.obstacles.length = 0;
+                // this.bonuses.length = 0;
+                this.gameOver = true;
+                // this.score = '';
+            }
+        });
+
+        /// BONUS PART
     }
 
     collisionCheck(player, obstacle) {

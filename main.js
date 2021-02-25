@@ -4,17 +4,15 @@ function preload() {
     backgroundImage = loadImage("./assets/1719689.jpg");
     danny = loadImage("./assets/croppedfrank.png");
     bonusImage = loadImage("./assets/rumham.png");
-    obstacleImage = loadImage("./assets/monster.gif");
+    obstacleImage = loadImage(
+        "./assets/st,small,507x507-pad,600x600,f8f8f8.png"
+    );
 }
 function draw() {
     clear();
-    if (mode == 0) {
-        textFont("Courier New, monospace");
-        fill(191, 103, 128);
-        text("PRESS ENTER TO START", 830, 200);
-    }
+    game.background.startBg();
     if (mode == 1) {
-        game.draw();
+         game.draw();
     }
 }
 
