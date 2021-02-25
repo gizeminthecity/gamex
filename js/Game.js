@@ -69,7 +69,7 @@ class Game {
 
             if (this.collisionCheck(this.player, bonus)) {
                 this.score += 10;
-                bonus.y = -500;
+                this.bonuses.splice(index, 1) ;
                 console.log("EATEN");
             }
 
