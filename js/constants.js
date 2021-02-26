@@ -8,5 +8,6 @@ let danny;
 let bonusImage;
 let obstacleImage;
 let mode;
+let endImage;
 
 

@@ -13,8 +13,9 @@ class lostGame {
         textSize(30);
         textFont("Courier New, monospace");
         fill(191, 103, 128);
-        text("YOU LOST", 980, 200);
+        text("YOU LOST", 980, 150);
         text("Press ENTER to PLAY again.", 1000, 250);
+        image(endImage,745,300,500,400)
 
     }
 }

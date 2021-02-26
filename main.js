@@ -8,6 +8,7 @@ function preload() {
         "./assets/st,small,507x507-pad,600x600,f8f8f8.png"
     );
     logo = loadImage('./assets/hqdefault.png');
+    endImage = loadImage('./assets/flat,750x,075,f-pad,750x1000,f8f8f8.u3.jpg');
 }
 function draw() {
     clear();
@@ -21,6 +22,7 @@ function setup() {
     mode = 0;
     createCanvas(WIDTH, HEIGHT);
     textSize(30);
+    
 }
 
 function keyPressed() {
