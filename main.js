@@ -28,3 +28,4 @@ function keyPressed() {
     }
     game.keyPressed();
 }
+

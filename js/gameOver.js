@@ -15,5 +15,6 @@ class lostGame {
         fill(191, 103, 128);
         text("YOU LOST", 930, 200);
         text("Press ENTER to PLAY again.", 780, 250);
+        
     }
 }

@@ -6,6 +6,9 @@ class Game {
         this.bonuses = [];
         this.score = 0;
         this.lostGame = new lostGame();
+        this.highScore;
+        this.saveKeyScore = "highscore";
+        this.scoreStr = localStorage.getItem(this.saveKeyScore);
     }
 
     keyPressed() {
@@ -17,16 +20,6 @@ class Game {
         }
     }
 
-    init() {
-        this.background = new Background();
-        this.player = new Player();
-        this.obstacles = [];
-        this.bonuses = [];
-        this.score = 0;
-        this.lostGame = new lostGame();
-        this.gameOver = false;
-    }
-
     draw() {
         clear();
         this.background.draw();
@@ -35,9 +28,17 @@ class Game {
         if (frameCount % 173 === 0) {
             this.obstacles.push(new Obstacle());
         }
+        // draw score
         textSize(35);
         fill(124, 88, 124);
         text(`${this.score}`, 1600, 50);
+
+        // draw high score
+        textAlign("center");
+        fill(124, 88, 124);
+        text(`${this.highScore}`, 1000, 50);
+
+        /// BONUS PART
 
         if (frameCount % 60 === 0) {
             this.bonuses.push(new Bonus());
@@ -47,7 +48,7 @@ class Game {
             bonus.draw();
 
             if (this.collisionCheck(this.player, bonus)) {
-                this.score += 10;
+                this.score += 50;
                 this.bonuses.splice(index, 1);
                 console.log("EATEN");
             }
@@ -55,7 +56,6 @@ class Game {
             if (bonus.x <= -bonus.width) {
                 this.bonuses.splice(index, 1);
             }
-
         });
 
         this.obstacles.forEach((obstacle, index) => {
@@ -76,7 +76,32 @@ class Game {
             }
         });
 
-        /// BONUS PART
+        //get high score
+        if (this.scoreStr == null) {
+            this.highScore = 0;
+        } else {
+            this.highScore = parseInt(this.scoreStr);
+        }
+
+        //check high score
+
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+            localStorage.setItem(this.saveKeyScore, this.highScore);
+        }
+    }
+
+    init() {
+        this.background = new Background();
+        this.player = new Player();
+        this.obstacles = [];
+        this.bonuses = [];
+        this.score = 0;
+        this.lostGame = new lostGame();
+        this.gameOver = false;
+        this.highScore;
+        this.saveKeyScore = "highscore";
+        this.scoreStr = localStorage.getItem(this.saveKeyScore);
     }
 
     collisionCheck(player, obstacle) {
