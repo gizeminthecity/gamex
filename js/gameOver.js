@@ -9,12 +9,12 @@ class lostGame {
     draw() {
         clear();
         //  image(backgroundImage, this.x, this.y, this.width, this.height);
-
+        textAlign('center');
         textSize(30);
         textFont("Courier New, monospace");
         fill(191, 103, 128);
-        text("YOU LOST", 930, 200);
-        text("Press ENTER to PLAY again.", 780, 250);
-        
+        text("YOU LOST", 980, 200);
+        text("Press ENTER to PLAY again.", 1000, 250);
+
     }
 }

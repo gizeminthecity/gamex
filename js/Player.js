@@ -3,7 +3,7 @@ class Player {
         this.x = 570;
         this.y = 200;
         this.velocity = 0;
-        this.floor = 408;
+        this.floor = 448;
         this.lift = -15;
         this.width = 120;
         this.height = 90;

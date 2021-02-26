@@ -7,6 +7,7 @@ function preload() {
     obstacleImage = loadImage(
         "./assets/st,small,507x507-pad,600x600,f8f8f8.png"
     );
+    logo = loadImage('./assets/hqdefault.png');
 }
 function draw() {
     clear();

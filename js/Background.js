@@ -8,11 +8,11 @@ class Background {
 
     draw() {
         this.x -= 12;
-        image(backgroundImage, this.x, this.y, this.width, this.height);
+        image(backgroundImage, this.x, this.y +40, this.width, this.height);
         image(
             backgroundImage,
             this.x + this.width,
-            this.y,
+            this.y + 40,
             this.width,
             this.height
         );
@@ -25,7 +25,13 @@ class Background {
         if (mode == 0) {
             textFont("Courier New, monospace");
             fill(191, 103, 128);
-            text("PRESS ENTER TO START", 830, 200);
+            image(logo,750, 0);
+            text(`HELP FRANK TO EAT HIS FAVORITE RUM HAM WITHOUT 
+            TOUCHING LIAM MCPOYLE`,620, 400)
+            text('PRESS SPACE TO JUMP',830, 550);
+            text("PRESS ENTER TO START", 820, 650);
+
         }
     }
 }
+

@@ -31,12 +31,12 @@ class Game {
         // draw score
         textSize(35);
         fill(124, 88, 124);
-        text(`${this.score}`, 1600, 50);
+        text(`${this.score}`, 1600, 90);
 
         // draw high score
         textAlign("center");
         fill(124, 88, 124);
-        text(`${this.highScore}`, 1000, 50);
+        text(`${this.highScore}`, 1000, 90);
 
         /// BONUS PART
 
@@ -70,13 +70,12 @@ class Game {
                 noLoop();
                 this.lostGame.draw();
                 this.obstacles.length = 0;
-                // this.bonuses.length = 0;
                 this.gameOver = true;
-                // this.score = '';
             }
         });
 
         //get high score
+
         if (this.scoreStr == null) {
             this.highScore = 0;
         } else {
